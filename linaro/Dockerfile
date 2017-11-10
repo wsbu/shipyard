@@ -13,4 +13,6 @@ RUN apt-get purge --yes \
   xz-utils \
   && apt-get autoremove --yes
 
-COPY *.cmake /opt/
+COPY linaro-4.9.4.cmake /opt/
+RUN ln --symbolic --force linaro-4.9.4.cmake /opt/linaro.cmake \
+  && ln --symbolic --force linaro.cmake /opt/toolchain.cmake
