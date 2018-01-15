@@ -54,6 +54,8 @@ rm /tmp/cmake.sh
 ENV CC "${GCC_PREFIX}/bin/arm-linux-gnueabihf-gcc"
 ENV CXX "${GCC_PREFIX}/bin/arm-linux-gnueabihf-g++"
 ENV EMULATOR "/usr/bin/qemu-arm"
+# Make qemu work correctly: http://nairobi-embedded.org/qemu_usermode.html
+ENV QEMU_LD_PREFIX "${GCC_PREFIX}/arm-linux-gnueabihf/libc"
 ENV CMAKE_TOOLCHAIN_FILE "/opt/Toolchain.cmake"
 ENV PATH "${GCC_PREFIX}/bin:${PATH}"
 COPY linaro-4.9.4.cmake /opt/

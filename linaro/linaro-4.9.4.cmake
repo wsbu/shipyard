@@ -4,10 +4,6 @@ set(CMAKE_SYSTEM_PROCESSOR arm)
 
 set(CMAKE_C_COMPILER   "$ENV{GCC_PREFIX}/bin/arm-linux-gnueabihf-gcc")
 set(CMAKE_CXX_COMPILER "$ENV{GCC_PREFIX}/bin/arm-linux-gnueabihf-g++")
-set(CMAKE_AR           "$ENV{GCC_PREFIX}/bin/arm-linux-gnueabihf-ar")
-set(CMAKE_RANLIB       "$ENV{GCC_PREFIX}/bin/arm-linux-gnueabihf-ranlib")
-set(CMAKE_OBJCOPY      "$ENV{GCC_PREFIX}/bin/arm-linux-gnueabihf-objcopy")
-set(CMAKE_OBJDUMP      "$ENV{GCC_PREFIX}/bin/arm-linux-gnueabihf-objdump")
 
 set(CMAKE_FIND_ROOT_PATH "$ENV{GCC_PREFIX}/arm-linux-gnueabihf")
 
