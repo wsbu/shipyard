@@ -40,7 +40,10 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
   automake \
   libtool \
   flex \
-  bison
+  bison \
+  bc \
+  u-boot-tools
+RUN ln -sf /bin/bash /bin/sh
 
 ENV GCC_PREFIX /opt/linaro-4.9.4
 RUN mkdir -p ${GCC_PREFIX} \

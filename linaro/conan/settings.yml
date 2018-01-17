@@ -55,3 +55,4 @@ compiler:
         libcxx: [libstdc++, libc++]
 
 build_type: [None, Debug, Release]
+platform: [sitara, btg25]
