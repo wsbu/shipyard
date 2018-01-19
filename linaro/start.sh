@@ -12,7 +12,7 @@ if [ "${uid}" -a "${gid}" ] ; then
         ${user_name}
     chown ${uid}:${gid} $HOME
     chown ${uid}:${gid} $HOME/.ssh
-    su_cmd="sudo -u ${user_name}"
+    su_cmd="sudo --preserve-env --user ${user_name}"
     set +e
 fi
 

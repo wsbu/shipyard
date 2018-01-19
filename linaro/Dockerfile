@@ -42,7 +42,9 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
   flex \
   bison \
   bc \
-  u-boot-tools
+  u-boot-tools \
+  sudo \
+  git-core
 RUN ln -sf /bin/bash /bin/sh
 
 ENV GCC_PREFIX /opt/linaro-4.9.4
@@ -79,7 +81,7 @@ RUN apt-get install --yes --no-install-recommends \
   python-wheel
 
 # Install Conan
-RUN pip install conan==1.0.1
+RUN pip install conan==1.0.2
 COPY conan/sitara_profile "${HOME}/.conan/profiles/default"
 COPY conan/settings.yml "${HOME}/.conan/settings.yml"
 COPY conan/registry.txt "${HOME}/.conan/registry.txt"
@@ -87,8 +89,6 @@ ENV CONAN_CMAKE_TOOLCHAIN_FILE "$CMAKE_TOOLCHAIN_FILE"
 ENV CONAN_PRINT_RUN_COMMANDS 1
 
 RUN chmod -R 777 "${HOME}"
-
-RUN apt-get install --yes git-core sudo
 
 COPY start.sh /start.sh
 ENTRYPOINT ["/start.sh"]
