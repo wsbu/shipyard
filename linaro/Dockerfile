@@ -44,7 +44,8 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
   bc \
   u-boot-tools \
   sudo \
-  git-core
+  git-core \
+  mtd-utils
 RUN ln -sf /bin/bash /bin/sh
 
 ENV GCC_PREFIX /opt/linaro-4.9.4
