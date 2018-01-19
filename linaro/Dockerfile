@@ -88,6 +88,11 @@ ENV CONAN_PRINT_RUN_COMMANDS 1
 
 RUN chmod -R 777 "${HOME}"
 
+RUN apt-get install --yes git-core sudo
+
+COPY start.sh /start.sh
+ENTRYPOINT ["/start.sh"]
+
 # Cleanup
 #RUN apt-get purge --yes \
 #  wget \
