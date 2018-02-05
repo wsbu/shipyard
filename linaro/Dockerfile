@@ -45,7 +45,16 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
   u-boot-tools \
   sudo \
   git-core \
-  mtd-utils
+  mtd-utils \
+  xutils-dev \
+  openssh-client \
+  qemu-system-arm \
+  qemu-user \
+  pkg-config \
+  python-pip \
+  python-setuptools \
+  python-wheel
+
 RUN ln -sf /bin/bash /bin/sh
 
 ENV GCC_PREFIX /opt/linaro-4.9.4
@@ -72,15 +81,6 @@ RUN ln --symbolic --force /opt/linaro-4.9.4.cmake /opt/linaro.cmake \
 ENV HOME /home/captain
 RUN mkdir --parents ${HOME}/.ccache
 
-# Install utilities
-RUN apt-get install --yes --no-install-recommends \
-  qemu-system-arm \
-  qemu-user \
-  pkg-config \
-  python-pip \
-  python-setuptools \
-  python-wheel
-
 # Install Conan
 RUN pip install conan==1.0.2
 COPY conan/sitara_profile "${HOME}/.conan/profiles/default"
@@ -93,12 +93,4 @@ RUN chmod -R 777 "${HOME}"
 
 COPY start.sh /start.sh
 ENTRYPOINT ["/start.sh"]
-
-# Cleanup
-#RUN apt-get purge --yes \
-#  wget \
-#  xz-utils && \
-#  apt-get autoremove --yes && \
-#  apt-get clean && \
-#  rm --recursive --force /var/lib/apt/lists/*
 
