@@ -83,7 +83,8 @@ RUN mkdir --parents ${HOME}/.ccache
 
 # Install Conan
 RUN pip install conan==1.0.2
-COPY conan/sitara_profile "${HOME}/.conan/profiles/default"
+COPY conan/sitara_profile "${HOME}/.conan/profiles/sitara"
+RUN ln -s "${HOME}/.conan/profiles/sitara" "${HOME}/.conan/profiles/default"
 COPY conan/settings.yml "${HOME}/.conan/settings.yml"
 COPY conan/registry.txt "${HOME}/.conan/registry.txt"
 ENV CONAN_CMAKE_TOOLCHAIN_FILE "$CMAKE_TOOLCHAIN_FILE"
